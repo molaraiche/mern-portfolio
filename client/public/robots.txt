@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: http://molaraiche.com/
+
+# Sitemaps
+Sitemap: http://molaraiche.com/sitemap.xml
