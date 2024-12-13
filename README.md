@@ -1,4 +1,4 @@
-# MetaBlog - Blog App
+# molaraiche - Portfolio website
 
 ## 🌐 Demo
 
