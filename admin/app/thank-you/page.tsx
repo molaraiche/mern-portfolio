@@ -12,13 +12,13 @@ const Thanks = () => {
         <div className='flex items-center justify-center gap-10 mt-10'>
           <Link
             href='/projects'
-            className='py-3 px-6 bg-black-400 text-white ease-in duration-150 rounded-sm font-medium '>
+            className='py-3 px-6 bg-brand-light-black text-white ease-in duration-150 rounded-sm font-medium '>
             Projects
           </Link>
           <a
             href=''
             target='_blank'
-            className='py-3 px-10 bg-red-500 hover:bg-red-400 border-2 border-red-500 hover:border-red-400 ease-in duration-150 rounded-sm font-medium text-white'>
+            className='py-3 px-10 bg-brand-red hover:bg-red-400 border-2 border-brand-red hover:border-red-400 ease-in duration-150 rounded-sm font-medium text-white'>
             Can&apos;t wait the 24 ?
           </a>
         </div>

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { projectType } from "@/types/project";
@@ -7,27 +7,13 @@ import "aos/dist/aos.css";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let AOS: any;
 
-const ProjectCard = ({ title, logo, brief, category, path }: projectType) => {
-  const colors = useMemo(
-    () => [
-      "#7A19F3",
-      "#FF5733",
-      "#33FF57",
-      "#3357FF",
-      "#FFFF33",
-      "#FF33FF",
-      "#33FFFF",
-    ],
-    []
-  );
-
-  const [bgColor, setBgColor] = useState(colors[0]);
-
-  useEffect(() => {
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    setBgColor(randomColor);
-  }, [colors]);
-
+const ProjectCard = ({
+  title,
+  thumbnail,
+  brief,
+  category,
+  path,
+}: projectType) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       (async () => {
@@ -41,21 +27,20 @@ const ProjectCard = ({ title, logo, brief, category, path }: projectType) => {
   return (
     <div data-aos='fade-down' data-aos-duration='5000'>
       <Link href={`/projects/${path}`} className='flex flex-col'>
-        <div
-          className='flex items-center justify-center rounded-[32px] xl:w-[592px] xl:h-[586px] lg:w-[482px] lg:h-[586px] md:w-[328px] md:h-[354px] sm:w-[343px] sm:h-[363px] xsm:w-[323px] xsm:h-[343px]'
-          style={{ backgroundColor: bgColor }}>
+        <div className='flex items-center justify-center rounded bg-brand-light-black dark:bg-brand-white'>
           <Image
-            src={logo?.url || "/placeholder.png"}
+            src={thumbnail?.url || "/placeholder.png"}
             alt={brief || "Project thumbnail"}
-            width={481}
-            height={474}
-            className='object-cover lg:w-[481px] lg:h-[474px] md:w-[279px] md:h-[275px] sm:w-[268px] sm:h-[264px] xsm:w-[268px] xsm:h-[264px] rounded-[32px]'
+            width={800}
+            height={600}
+            className='object-cover rounded w-full'
           />
         </div>
-        <h3 className='text-xl font-semibold ml-4 dark:text-white mt-6'>
+
+        <h3 className='text-4xl font-semibold ml-4 dark:text-brand-white text-brand-black mt-6'>
           {title}
         </h3>
-        <p className='text-xl font-medium ml-4 mt-1.5 font-quicksand dark:text-white'>
+        <p className='text-xl font-medium ml-4 mt-1.5 font-quicksand text-brand-white bg-brand-light-black w-fit px-4 py-2 rounded'>
           {category}
         </p>
       </Link>

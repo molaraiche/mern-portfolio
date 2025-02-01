@@ -13,6 +13,10 @@ export default {
         "grey-500": "#C4C4C4",
         "grey-50": "#F9F9F9",
         "black-400": "#141414",
+        "brand-white": "#F1F1E7",
+        "brand-black": "#0B121A",
+        "brand-light-black": "#131d29",
+        "brand-red": "#DD2628",
       },
       fontFamily: {
         fm: ["var(--font-fm)"],

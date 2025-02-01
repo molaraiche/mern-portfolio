@@ -39,7 +39,7 @@ const Admin = () => {
     }
   };
   return (
-    <section className='bg-black h-screen text-white lg:container lg:mx-auto py-2 px-4'>
+    <section className='bg-brand- h-screen text-white lg:container lg:mx-auto py-2 px-4'>
       <div className='flex items-center justify-center h-[50vh]'>
         <h1 className='text-4xl font-bold text-center font-fm display-m'>
           Admin
@@ -56,7 +56,7 @@ const Admin = () => {
               name='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className='bg-black rounded-[10px] border outline-none border-grey-50 text-brand-white h-14 pl-2 w-full'
+              className='bg-brand-black rounded-[10px] border outline-none border-grey-50 text-brand-white h-14 pl-2 w-full'
             />
           </div>
           <div className='flex flex-col mb-5 w-full'>
@@ -66,7 +66,7 @@ const Admin = () => {
               name='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className='bg-black border border-grey-50 text-white rounded-[10px] outline-none h-14 pl-2 w-full'
+              className='bg-brand-black border border-grey-50 text-white rounded-[10px] outline-none h-14 pl-2 w-full'
             />
           </div>
           <div className='flex items-center justify-center gap-5 flex-col-reverse md:flex-row'>
@@ -75,13 +75,13 @@ const Admin = () => {
               linkPath='http://molaraiche.com/'
               target='_blank'
               label='Portfolio'
-              className='text-white bg-black'
+              className='text-white bg-brand-light-black border-brand-light-black'
             />
             <Button
               EType={"button"}
               type='submit'
               label='Login'
-              className='text-white bg-black-400'
+              className='text-white bg-brand-red border-brand-red'
             />
           </div>
         </form>

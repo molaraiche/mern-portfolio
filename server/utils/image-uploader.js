@@ -2,17 +2,17 @@ const multer = require("multer");
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const cloudinary = require("cloudinary").v2;
 
-// You can get your APIS from  https://cloudinary.com/
+// to get your cloudinary config: https://cloudinary.com/
 cloudinary.config({
-  cloud_name: process.env.CLOUDNAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUD_SECRET,
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
 });
 
 const cloudinaryStorage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: "portfolio_images",
+    folder: "images",
     format: async (req, file) => {
       const validFormats = ["jpg", "png", "webp", "svg"];
       const ext = file.mimetype.split("/")[1];

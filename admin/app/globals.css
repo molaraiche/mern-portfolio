@@ -17,7 +17,7 @@ body {
   border-radius: 4px;
   outline: none;
   color: white;
-  background-color: black;
+  background-color: #131d29;
 
 }
 
@@ -44,5 +44,14 @@ body {
 
   .liStyle {
     @apply my-4 mx-3 flex items-center gap-4;
+  }
+
+  .date-icon-white::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+  }
+
+  .date-icon-white::-moz-calendar-picker-indicator {
+    filter: invert(1);
   }
 }

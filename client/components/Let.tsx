@@ -1,15 +1,36 @@
+"use client";
+import { useState } from "react";
+import { TbCopy } from "react-icons/tb";
+import { TbCopyCheck } from "react-icons/tb";
+
 const LetConnect = () => {
+  const [copied, setCopied] = useState(false);
+
+  const email = "laraichemohamed@gmail.com";
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy email: ", err);
+    }
+  };
   return (
-    <section className='dark:text-white flex items-center justify-center flex-col h-[40vh] contactPage'>
-      <h1 className='lg:display-m md:text-8xl sm:text-6xl xsm:text-5xl text-center font-semibold'>
+    <section className='dark:text-brand-white text-brand-black flex items-center justify-center flex-col h-[40vh] contactPage'>
+      <h1 className='lg:display-m md:text-8xl sm:text-6xl xsm:text-5xl text-center font-semibold tracking-tighter'>
         Let&apos;s talk !
       </h1>
-      <a
-        href='https://calendly.com/molaraiche/service-needed'
-        target='_blank'
-        className='py-2 px-4 w-[200px] h-[92px] flex items-center justify-center rounded-[144px] bg-black dark:bg-black-400 text-white mt-10 cursor-pointer font-medium'>
-        Book a call
-      </a>
+      <button
+        className='bg-brand-black text-brand-white flex items-center gap-3 py-3 px-6 rounded'
+        onClick={handleCopy}>
+        {email}{" "}
+        {copied ? (
+          <TbCopyCheck className='text-green-500 w-6 h-6' />
+        ) : (
+          <TbCopy className=' w-6 h-6' />
+        )}
+      </button>
     </section>
   );
 };

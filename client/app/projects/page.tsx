@@ -48,21 +48,14 @@ const ProjectsPage: React.FC = () => {
   }, [selectedCategory, projects]);
 
   return (
-    <section className='dark:text-white min-h-[85vh] font-fm'>
+    <section className='dark:text-brand-white text-brand-black min-h-[85vh] font-ls'>
       <div>
-        <h1 className='display-m'>Projects</h1>
-        <p className='text-lg mt-3 font-quicksand'>
-          Here is the list of all the projects I have built since I started in
-          this field. some of them with the source code and some with just live
-          preview. don&apos;t hesitate to contact me to build some wonderful
-          stuff together.
-          <a
-            href='https://wa.link/2rag89'
-            title='this is a link to collaborate with me'
-            className='font-semibold mx-1 text-black-400 dark:text-grey-50'
-            target='_blank'>
-            Let&apos;s collaborate
-          </a>
+        <h1 className='display-m tracking-tighter'>Projects</h1>
+        <p className='text-lg mt-3 font-quicksand font-medium'>
+          Here&apos;s a showcase of all the projects I&apos;ve built since I
+          began my journey in this field. Some include source code, while others
+          feature live previews. Feel free to reach out if you&apos;d like to
+          collaborate and create something amazing together!
         </p>
       </div>
 
@@ -82,7 +75,7 @@ const ProjectsPage: React.FC = () => {
               title={project.title}
               brief={project.brief}
               path={project.path}
-              logo={project.logo}
+              thumbnail={project.thumbnail}
               category={project.category}
             />
           ))}

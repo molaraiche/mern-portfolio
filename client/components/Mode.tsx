@@ -19,9 +19,21 @@ const Mode: React.FC = () => {
       }}>
       <div className={``}>
         {isLightMode ? (
-          <Image src={"/dark.svg"} height={32} width={32} alt='' />
+          <Image
+            src={"/light.svg"}
+            height={32}
+            width={32}
+            alt='dark mode for molarache portfolio'
+            className='cursor-pointer'
+          />
         ) : (
-          <Image src={"/light.svg"} height={32} width={32} alt='' />
+          <Image
+            src={"/dark.svg"}
+            height={32}
+            width={32}
+            alt='dark mode for molarache portfolio'
+            className='cursor-pointer'
+          />
         )}
       </div>
     </div>

@@ -9,23 +9,23 @@ body {
 
 @layer utilities {
   .display-2xl {
-    @apply font-fm text-[190px] font-semibold leading-[180px];
+    @apply font-ls text-[200px] font-semibold leading-[180px];
   }
 
   .display-xl {
-    @apply font-fm text-[100px] font-semibold leading-[154px];
+    @apply font-ls text-[100px] font-semibold leading-[154px];
   }
 
   .display-m {
-    @apply font-fm text-[84px] font-semibold leading-[109px];
+    @apply font-ls text-[84px] font-semibold leading-[109px];
   }
 
   .h1 {
-    @apply font-fm text-[64px] font-semibold leading-[70px];
+    @apply font-ls text-[64px] font-semibold leading-[70px];
   }
 
   .h2 {
-    @apply font-fm text-[48px] font-semibold leading-[58px];
+    @apply font-ls text-[48px] font-semibold leading-[58px];
   }
 
   .liStyle {

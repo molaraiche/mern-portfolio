@@ -1,87 +1,52 @@
-# molaraiche - Portfolio website
+![molaraiche](./ss.png "molaraiche Screenshot")
 
-## 🌐 Demo
+# molaraiche
 
-Here is the official website: http://molaraiche.com/
+molaraiche is my personal portfolio, i create it as a showcase for my skills, and my built projects, it's a fullstack web application
 
-## 📝 Description
+## Main Features
 
-Welcome to molaraiche ! Here, I'll share what inspired me to create it, the problems it aims to solve, and the insights I've gained throughout the process.
+- Dashboard to manage projects
+- Dark Mode
+- Filter functioanlity
+- Contact form
+- Extremly SEO optimization (92)
+- High performance optimization (100)
 
-- Motivation:
-  Motivation is clearly that each web devleoper have to get a portfolio to present him and showcase his work and his projects
+## Technologies Used
 
-- Features:
-  This portfolio is full of features, i worked with heart on him to make him show all what i imagined to have in my portfolio, from a dark mode for eyes comfort to fitler to fast navigation to some animations to keep the website alive until the super high performances
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Node](https://nodejs.org/en)
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [JWT](https://jwt.io/)
 
-## 📖 Table of Contents (Optional)
+## 🚀 Running the Development Server
 
-If your README is long, add a table of contents to make it easy for users to find what they need.
+```bash
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+# clone the project
+git clone https://github.com/molaraiche/mern-portfolio.git
 
-## 🛠️ Setup Project
+# Go to the main folder
+cd mern-portfolio
+cd admin
+npm install
+npm run dev
+cd ..
+cd client
+npm install
+npm run dev
+cd ..
+cd server
+npm install
+npm run dev
 
-To get this project up and running in your development environment, follow these step-by-step instructions.
+```
 
-### 🍴 Prerequisites
+## Developer Contact
 
-We need to install or make sure that these tools are pre-installed on your machine:
-
-- [NodeJS](https://nodejs.org/en/download/): It is a JavaScript runtime build.
-- [Git](https://git-scm.com/downloads): It is an open source version control system.
-- [NPM](https://docs.npmjs.com/): It is a package manager for JavaScript.
-
-### 🚀 Install Project
-
-1. Clone the Repository
-
-   ```bash
-   git clone https://github.com/molaraiche/mern-portfolio.git
-   ```
-
-2. Navigate into the project directory & Install dependencies
-
-   ```bash
-   cd server
-   npm install nodemon -g
-   npm install
-   cd ..
-   cd client
-   npm install
-   ```
-
-3. Start the application
-
-   ```bash
-   cd server
-   npm run dev
-   cd ..
-   cd client
-   npm run dev
-   ```
-
-4. Open your web browser and navigate to <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> to see the project running (client) and Open your web browser and navigate to <a href="http://localhost:5000" target="_blank">http://localhost:5000</a> to see the project running (server) .
-
-## ⚒️ How to Contribute
-
-Want to contribute? Great!
-
-To fix a bug or enhance an existing module, follow these steps:
-
-- Fork the repo
-- Create a new branch (`git checkout -b improve-feature`)
-- Make the appropriate changes in the files
-- Add changes to reflect the changes made
-- Commit your changes (`git commit -am 'Improve feature'`)
-- Push to the branch (`git push origin improve-feature`)
-- Create a Pull Request
-
-## 📞 Contact Me
-
-[![Follow us on twitter](https://img.shields.io/twitter/follow/molaraiche.svg?style=social)](https://twitter.com/intent/follow?screen_name=molaraiche)
-[![Follow us on LinkedIn](https://img.shields.io/badge/LinkedIn-mohamedlaraiche-blue?style=flat&logo=linkedin&logoColor=b0c0c0&labelColor=363D44)](https://www.linkedin.com/company/mohamedlaraiche)
-[![Follow us on Instagram](https://img.shields.io/badge/Instagram-molaraiche-grey?style=flat&logo=instagram&logoColor=b0c0c0&labelColor=8134af)](https://www.instagram.com/molaraiche)
+[molaraiche](http://molaraiche.com/)

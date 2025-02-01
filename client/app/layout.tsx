@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Familjen_Grotesk, Quicksand } from "next/font/google";
+import { Quicksand, League_Spartan } from "next/font/google";
 import { ThemeProvider } from "@/context/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import "animate.css";
 import BackTop from "@/components/BackTop";
 import { Analytics } from "@vercel/analytics/react";
-const fm = Familjen_Grotesk({
+
+const LS = League_Spartan({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-fm",
+  weight: ["500", "600", "700", "800", "900"],
+  variable: "--font-ls",
 });
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -17,19 +18,19 @@ const quicksand = Quicksand({
   variable: "--font-quicksand",
 });
 export const metadata: Metadata = {
-  title: "Mohamed Laraiche | Freelancer Full-Stack Web Developer",
+  title: "Mohamed Laraiche | Frontend Developer",
   description:
-    "I am Mohamed Laraiche, a professional freelancer specializing in full-stack web development. I create dynamic, scalable websites and applications using TypeScript, Next.js, Tailwind CSS, and the MERN stack. I offer custom solutions for e-commerce, portfolio websites, and businesses seeking a strong online presence.",
+    "I am Mohamed Laraiche, a frontend developer based in Chichaoua, Morocco. I specialize in building modern, responsive websites and web applications using Next.js, Tailwind CSS, and TypeScript. Let's create something extraordinary together.",
   authors: [{ name: "Mohamed Laraiche", url: "https://molaraiche.com" }],
   keywords:
-    "Freelancer Developer, Full-Stack Web Development, MERN Stack, Next.js, TypeScript, Tailwind CSS, Firebase, GraphQL, REST API, Web Development Services, Responsive Design, UI/UX, SEO, E-commerce Solutions, Remote Freelance Work, Portfolio Websites",
-  category: "Web Development",
+    "Frontend Developer, Next.js, Tailwind CSS, TypeScript, Responsive Design, UI/UX Development, Web Applications, Modern Web Development, Remote Work, Morocco Developer",
+  category: "Frontend Development",
   openGraph: {
-    title: "Mohamed Laraiche | Freelancer Full-Stack Web Developer",
+    title: "Mohamed Laraiche | Frontend Developer",
     type: "website",
     url: "https://molaraiche.com",
     description:
-      "Professional freelancer specializing in full-stack web development. I build responsive, dynamic, and scalable websites with TypeScript, Next.js, Tailwind CSS, and the MERN stack. I help businesses and individuals succeed online.",
+      "I’m Mohamed Laraiche, a frontend developer from Chichaoua, Morocco. I craft modern, responsive websites and web applications using Next.js, Tailwind CSS, and TypeScript.",
     siteName: "Mohamed Laraiche",
     images: [
       {
@@ -42,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mohamed Laraiche | Freelancer Full-Stack Web Developer",
+    title: "Mohamed Laraiche | Frontend Developer",
     description:
-      "Professional freelancer specializing in full-stack web development. I create responsive, scalable websites tailored to your business needs.",
+      "I am Mohamed Laraiche, a frontend developer specializing in Next.js, Tailwind CSS, and TypeScript. Let’s collaborate to build modern and responsive websites.",
     images: ["https://molaraiche.com/molaraiche.jpg"],
   },
 };
@@ -56,9 +57,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${fm.variable} ${quicksand.variable} antialiased`}>
+      <body className={`${LS.variable} ${quicksand.variable} antialiased`}>
         <ThemeProvider>
-          <main className=' dark:bg-black'>
+          <main className='bg-brand-white dark:bg-brand-black'>
             <section className='lg:container lg:mx-auto py-2 md:px-14 sm:px-10 xsm:px-4 relative'>
               <Navbar />
               {children}

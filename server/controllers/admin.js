@@ -2,10 +2,12 @@ const Admin = require("../models/admin");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const SECRET = process.env.SECRET;
+
+
+// for JWT secret https://jwtsecret.com/generate
 
 const CreateToken = (id) => {
-  return jwt.sign({ id }, SECRET, { expiresIn: "1d" });
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" });
 };
 
 const login = async (req, res) => {

@@ -41,7 +41,7 @@ const Contact = () => {
     }
   };
   return (
-    <section className=' dark:text-white font-fm flex flex-col justify-center min-h-[85vh]'>
+    <section className=' dark:text-brand-white text-brand-black font-ls flex flex-col justify-center min-h-[85vh]'>
       <div className=''>
         <div className='flex items-center justify-center flex-col'>
           <h1 className='display-m'>Contact</h1>
@@ -61,9 +61,9 @@ const Contact = () => {
                 name='name'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className='h-10 outline-none dark:border-grey-500 border-2 rounded-md border-black-400 w-[60%] bg-transparent pl-2'
+                className='h-10 outline-none dark:border-grey-500 border-2 rounded-md border-brand-light-black w-[60%] bg-transparent pl-2'
               />
-              <p className='text-red-500 font-semibold mb-2'>{errors.name}</p>
+              <p className='text-brand-red font-semibold mb-2'>{errors.name}</p>
             </div>
             <div className='flex flex-col items-center w-full'>
               <input
@@ -72,9 +72,11 @@ const Contact = () => {
                 name='email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className='h-10 outline-none dark:border-grey-500 border-2 rounded-md border-black-400 w-[60%] bg-transparent pl-2'
+                className='h-10 outline-none dark:border-grey-500 border-2 rounded-md border-brand-light-black w-[60%] bg-transparent pl-2'
               />
-              <p className='text-red-500 font-semibold mb-2'>{errors.email}</p>
+              <p className='text-brand-red font-semibold mb-2'>
+                {errors.email}
+              </p>
             </div>
             <div className='flex flex-col items-center w-full'>
               <textarea
@@ -82,14 +84,14 @@ const Contact = () => {
                 placeholder='Your Message'
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className='min-h-24 outline-none dark:border-grey-500 border-2 rounded-md border-black-400 w-[60%] resize-x-0 bg-transparent pl-2'
+                className='min-h-24 outline-none dark:border-grey-500 border-2 rounded-md border-brand-light-black w-[60%] resize-x-0 bg-transparent pl-2'
               />
-              <p className='text-red-500 font-semibold mb-2'>
+              <p className='text-brand-red font-semibold mb-2'>
                 {errors.message}
               </p>
             </div>
             <div className='flex items-center justify-center my-4'>
-              <button className='py-3  px-10 font-semibold bg-grey-500 hover:bg-black-400 hover:text-white dark:bg-black-400 dark:text-white rounded-lg dark:hover:bg-grey-500 dark:hover:text-black ease-in duration-150'>
+              <button className='py-3  px-10 font-semibold bg-brand-red text-brand-white rounded-lg dark:hover:bg-opacity-90 dark:hover:text-brand-white ease-in duration-150'>
                 Submit
               </button>
             </div>

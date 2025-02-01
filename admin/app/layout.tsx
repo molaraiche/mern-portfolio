@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${quicksand.variable} ${fm.variable} bg-brand-blue min-h-screen `}>
+        className={`${quicksand.variable} ${fm.variable} bg-brand-black text-brand-white min-h-screen `}>
         <main>
           {children}
           <ToastContainer position='bottom-right' />

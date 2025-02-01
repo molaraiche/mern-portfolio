@@ -2,24 +2,12 @@ import { getAllProjects } from "@/api/server";
 import Button from "@/components/Button";
 import Delete from "@/components/Delete";
 import { projectType } from "@/types/project";
-import Link from "next/link";
-import { FaInbox } from "react-icons/fa6";
 
 const Projects = async () => {
   const projects = await getAllProjects();
 
   return (
     <section className='h-screen flex items-center justify-center flex-col w-full px-10'>
-      <div className='flex items-center justify-start w-full px-10'>
-        <Link
-          href='/board/inbox'
-          className='font-semibold flex items-center gap-1'>
-          <span>
-            <FaInbox />
-          </span>
-          Inbox
-        </Link>
-      </div>
       <div className='flex justify-end my-5 px-10 w-full'>
         <Button
           EType='link'

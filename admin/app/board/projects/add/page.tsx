@@ -4,6 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { toast } from "react-toastify";
+import { FaUpload } from "react-icons/fa6";
 
 const Add = () => {
   const [form, setForm] = useState({
@@ -11,13 +12,13 @@ const Add = () => {
     source: "",
     live: "",
     brief: "",
-    description: "",
+    stack: "",
+    process: "",
+    solution: "",
     path: "",
     category: "",
-    features: [] as string[],
+    date: "",
     thumbnail: null as File | null,
-    logo: null as File | null,
-    tech: [] as File[],
     hot: false,
   });
   const router = useRouter();
@@ -37,30 +38,12 @@ const Add = () => {
 
     if (name === "thumbnail" || name === "logo") {
       setForm({ ...form, [name]: files[0] });
-    } else if (name === "tech") {
-      setForm({ ...form, tech: Array.from(files) });
     }
-  };
-
-  const addFeatureHandler = (feature: string) => {
-    setForm({ ...form, features: [...form.features, feature] });
   };
 
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (
-      !form.title ||
-      !form.source ||
-      !form.live ||
-      !form.brief ||
-      !form.description ||
-      !form.path ||
-      !form.category ||
-      !form.features.length ||
-      !form.thumbnail ||
-      !form.logo ||
-      !form.tech.length
-    ) {
+    if (!form.title || !form.thumbnail) {
       toast.info("Please fill all fields");
       return;
     }
@@ -70,15 +53,14 @@ const Add = () => {
     formData.append("source", form.source);
     formData.append("live", form.live);
     formData.append("brief", form.brief);
-    formData.append("description", form.description);
+    formData.append("solution", form.solution);
+    formData.append("stack", form.stack);
+    formData.append("process", form.process);
     formData.append("path", form.path);
     formData.append("category", form.category);
-    formData.append("features", JSON.stringify(form.features));
     formData.append("thumbnail", form.thumbnail);
-    formData.append("logo", form.logo);
     formData.append("hot", form.hot ? "true" : "false");
-
-    form.tech.forEach((file) => formData.append("tech", file));
+    formData.append("date", form.date);
 
     try {
       await axios.post(
@@ -86,20 +68,20 @@ const Add = () => {
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-      toast.success("project has been added !");
+      toast.success("Project has been added!");
 
       setForm({
         title: "",
         source: "",
         live: "",
         brief: "",
-        description: "",
+        solution: "",
+        process: "",
+        stack: "",
         path: "",
         category: "",
-        features: [],
         thumbnail: null,
-        logo: null,
-        tech: [],
+        date: "",
         hot: false,
       });
       router.refresh();
@@ -108,12 +90,7 @@ const Add = () => {
       toast.error("Failed to add the project. Please try again.");
     }
   };
-  const removeFeatureHandler = (indexToRemove: number) => {
-    setForm((prevForm) => ({
-      ...prevForm,
-      features: prevForm.features.filter((_, index) => index !== indexToRemove),
-    }));
-  };
+
   return (
     <div className='min-h-screen flex items-center justify-center flex-col w-full form font-quicksand px-20 '>
       <div className='h1 font-fm h-[10vh]'>Add New Project</div>
@@ -151,12 +128,27 @@ const Add = () => {
         {/* Description, Brief */}
         <div className='flex gap-5 items-center justify-between w-full my-3'>
           <textarea
-            name='description'
+            name='process'
             className='min-h-[100px] resize-none w-1/2 border border-white'
-            placeholder='Description'
-            value={form.description}
+            placeholder='Process'
+            value={form.process}
             onChange={onChangeHandler}
           />
+          <textarea
+            name='solution'
+            className='min-h-[100px] resize-none w-1/2 border border-white'
+            placeholder='Solution'
+            value={form.solution}
+            onChange={onChangeHandler}
+          />
+          <textarea
+            name='stack'
+            className='min-h-[100px] resize-none w-1/2 border border-white'
+            placeholder='Stack'
+            value={form.stack}
+            onChange={onChangeHandler}
+          />
+
           <textarea
             name='brief'
             className='min-h-[100px] resize-none w-1/2 border border-white'
@@ -166,69 +158,42 @@ const Add = () => {
           />
         </div>
 
-        {/* Features */}
-        <div className='flex items-center justify-center w-full gap-3'>
-          <input
-            type='text'
-            className='w-full border border-white'
-            placeholder='Features'
-            name='features'
-            id='features'
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault();
-                const target = e.target as HTMLInputElement;
-                if (target.value.trim()) {
-                  addFeatureHandler(target.value.trim());
-                  target.value = "";
-                }
-              }
-            }}
-          />
-        </div>
-
         {/* Thumbnail, Logo, Tech */}
-        <div className='flex items-center justify-between my-3'>
-          <label htmlFor='thumbnail' className='flex items-center'>
-            {form.thumbnail ? form.thumbnail.name : "Upload Thumbnail"}
+        <div className='my-3 w-full '>
+          <label
+            htmlFor='thumbnail'
+            className='flex justify-center my-3 items-center border py-2 px-40 rounded bg-brand-light-black'
+            title='Upload Thumbnail Image'>
+            {form.thumbnail ? (
+              form.thumbnail.name
+            ) : (
+              <p className='flex items-center gap-1 justify-center'>
+                {" "}
+                <FaUpload />
+                Thumbnail
+              </p>
+            )}
             <input
               type='file'
               name='thumbnail'
               id='thumbnail'
               onChange={onFileChangeHandler}
-              className=''
-            />
-          </label>
-          <label htmlFor='logo' className='flex items-center'>
-            {form.logo ? form.logo.name : "Upload Logo"}
-            <input
-              type='file'
-              name='logo'
-              id='logo'
-              onChange={onFileChangeHandler}
-            />
-          </label>
-          <label htmlFor='tech' className='flex items-center'>
-            Upload Tech Files
-            <input
-              type='file'
-              name='tech'
-              id='tech'
-              multiple
-              onChange={onFileChangeHandler}
+              className='hidden'
             />
           </label>
         </div>
 
         {/* Hot, Category, Path */}
         <div
-          className='flex items-center justify-between w-full my-3
+          className='flex flex-col  justify-between w-full my-3
       '>
-          <label htmlFor='hot'>Hot:</label>
+          <label htmlFor='hot' className='my-1'>
+            Hot:
+          </label>
           <select
             name='hot'
             id='hot'
-            className='w-full p-3 bg-black border border-white mx-1'
+            className='w-full p-3 bg-brand-light-black border border-white mx-1 rounded'
             value={form.hot ? "true" : "false"}
             onChange={(e) =>
               setForm({
@@ -240,7 +205,17 @@ const Add = () => {
             <option value='true'>True</option>
           </select>
         </div>
-        <div className='flex items-center justify-between my-3 w-full'>
+        <div className='w-full my-3 '>
+          <label htmlFor='Date'>Creation Date:</label>
+          <input
+            type='date'
+            className='border border-white my-1 text-brand-white date-icon-white'
+            name='date'
+            id='Date'
+            onChange={onChangeHandler}
+          />
+        </div>
+        <div className='flex items-center justify-between gap-3 my-3 w-full'>
           <input
             type='text'
             placeholder='Category'
@@ -261,49 +236,11 @@ const Add = () => {
 
         {/* Submit and Reset */}
         <div className='my-10 flex items-center justify-center gap-5 w-full'>
-          <input
-            type='reset'
-            className='bg-red-500 text-white rounded border border-white font-semibold'
-            onClick={() =>
-              setForm({
-                title: "",
-                source: "",
-                live: "",
-                brief: "",
-                description: "",
-                path: "",
-                category: "",
-                features: [],
-                thumbnail: null,
-                logo: null,
-                tech: [],
-                hot: false,
-              })
-            }
-          />
-          <button className='bg-black-400 text-white py-2 px-6 rounded font-semibold w-[100%]'>
+          <button className='bg-brand-red text-white py-2 px-6 rounded font-semibold w-[100%]'>
             Create
           </button>
         </div>
       </form>
-
-      {/* Features List */}
-      <div className='mt-5 w-full flex flex-col px-10'>
-        <h3 className='font-bold font-fm'>Features Added:</h3>
-        <ul className='my-4'>
-          {form.features.map((feature, index) => (
-            <li key={index} className='flex items-center gap-3'>
-              <span>{feature}</span>
-              <button
-                type='button'
-                onClick={() => removeFeatureHandler(index)}
-                className='text-red-500 hover:text-red-700 font-semibold'>
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
     </div>
   );
 };

@@ -1,8 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./databases/db");
-const dotenv = require("dotenv");
-dotenv.config();
+require("dotenv");
 
 connectDB();
 
@@ -21,6 +20,6 @@ app.use("/api/blogs", blogsRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/contact", contactRouter);
 
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
 app.listen(PORT, console.log("Server is up and running"));
