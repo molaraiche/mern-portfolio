@@ -2,16 +2,16 @@
 
 # molaraiche
 
-molaraiche is my personal portfolio, i create it as a showcase for my skills, and my built projects, it's a fullstack web application
+molaraiche is my portfolio, i create it as a showcase for my skills, and my built projects, it's a full-stack web application
 
 ## Main Features
 
 - Dashboard to manage projects
 - Dark Mode
-- Filter functioanlity
+- Filter functionality
 - Contact form
-- Extremly SEO optimization (92)
-- High performance optimization (100)
+- Extremely SEO optimization (92)
+- High-performance optimization (100)
 
 ## Technologies Used
 
