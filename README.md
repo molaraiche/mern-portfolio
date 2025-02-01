@@ -2,7 +2,7 @@
 
 # molaraiche
 
-molaraiche is my portfolio, i create it as a showcase for my skills, and my built projects, it's a full-stack web application
+molaraiche is my portfolio, I created it as a showcase for my skills, and my built projects, it's a full-stack web application
 
 ## Main Features
 
